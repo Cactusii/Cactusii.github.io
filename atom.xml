@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cactusii.github.io/</id>
     <title>Cactuii&apos;s Blog</title>
-    <updated>2020-09-19T03:48:24.478Z</updated>
+    <updated>2020-09-21T15:24:22.063Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cactusii.github.io/"/>
     <link rel="self" href="https://cactusii.github.io/atom.xml"/>
@@ -10,6 +10,126 @@
     <logo>https://cactusii.github.io/images/avatar.png</logo>
     <icon>https://cactusii.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Cactuii&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[排序算法]]></title>
+        <id>https://cactusii.github.io/post/pai-xu-suan-fa/</id>
+        <link href="https://cactusii.github.io/post/pai-xu-suan-fa/">
+        </link>
+        <updated>2020-09-21T14:51:59.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://cactusii.github.io//post-images/1600700055304.png" alt="" loading="lazy"></figure>
+<h2 id="稳定排序">稳定排序</h2>
+<h3 id="1直接插入排序-on2">1.直接插入排序 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></h3>
+<pre><code class="language-c++">void insSort(int *arr,int n)
+{
+    for(int i=0;i&lt;n;i++)
+    {
+        int tmp=arr[i];
+        int j=i-1;
+        while(j&gt;=0&amp;&amp;tmp&lt;arr[j])
+        {
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=tmp;
+    }
+}
+</code></pre>
+<h3 id="2冒泡排序-on2">2.冒泡排序 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n^{2})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></h3>
+<pre><code class="language-c++">void bubSort(int *arr,int n)
+{
+    for(int i=0;i&lt;n;i++)
+        for(int j=0;j&lt;n-i-1;j++)
+            if(arr[j]&gt;arr[j+1])
+                swap(arr[j],arr[j+1]);
+}
+</code></pre>
+<h3 id="3二路归并排序">3.二路归并排序</h3>
+<p>按照分治思想，将序列分为若干子序列，子序列有序，然后再将子序列合并为整体有序序列。</p>
+<h3 id="4基数排序">4.基数排序</h3>
+<p>桶子排序，按照基数对整个序列进行多次的排序。</p>
+<h2 id="不稳定排序">不稳定排序</h2>
+<h3 id="5选择排序">5.选择排序</h3>
+<pre><code class="language-c++">void selSort(int *arr,int n)
+{
+    for(int i=0;i&lt;n;i++)
+    {
+        int MIN_index = i;
+        for(int j=i;j&lt;n;j++)
+            if(arr[MIN_index]&gt;arr[j]) MIN_index=j;
+        swap(arr[MIN_index],arr[i]);
+    }
+}
+
+</code></pre>
+<h3 id="6快速排序">6.快速排序</h3>
+<p>挖坑填坑的过程。</p>
+<pre><code class="language-c++">void quiSort(int *arr,int l,int r)
+{
+    if(l&gt;=r) return;
+    int base=arr[l];
+    int i=l,j=r;
+    while(i&lt;j)
+    {
+        while(arr[j]&gt;=base&amp;&amp;i&lt;j) j--;
+        if(i&lt;j) arr[i++]=arr[j];
+        while(arr[i]&lt;base&amp;&amp;i&lt;j) i++;
+        if(i&lt;j) arr[j--]=arr[i];
+    }
+    arr[i]=base;
+    quiSort(arr,l,i-1);
+    quiSort(arr,i+1,r);
+}
+
+</code></pre>
+<h3 id="7希尔排序">7.希尔排序</h3>
+<p>希尔排序就是升级版的插入排序。</p>
+<pre><code class="language-c++">void sheSort(int *arr,int n)
+{
+    int gap=n/2;
+    while(gap&gt;=1)
+    {
+        for(int i=gap; i&lt;n; i++)
+        {
+            int j=i-gap;
+            int tmp=arr[i];
+            while(j&gt;=0&amp;&amp;tmp&lt;arr[j])
+            {
+                arr[j+gap]=arr[j];
+                j-=gap;
+            }
+            arr[j+gap]=tmp;
+        }
+        gap/=2;
+    }
+}
+
+</code></pre>
+<h3 id="8堆排序">8.堆排序</h3>
+<p>不断拿出堆顶结点然后调整大(小)顶堆的过程。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++ STL]]></title>
+        <id>https://cactusii.github.io/post/c-stl/</id>
+        <link href="https://cactusii.github.io/post/c-stl/">
+        </link>
+        <updated>2020-09-21T09:34:05.000Z</updated>
+        <content type="html"><![CDATA[<p>A</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[C++基基基基础（面向对象）]]></title>
+        <id>https://cactusii.github.io/post/cji-ji-ji-ji-chu-mian-xiang-dui-xiang/</id>
+        <link href="https://cactusii.github.io/post/cji-ji-ji-ji-chu-mian-xiang-dui-xiang/">
+        </link>
+        <updated>2020-09-21T09:27:28.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1构造函数析构函数类和对象">1.构造函数&amp;析构函数（类和对象）</h2>
+<h2 id="2基类派生类继承">2.基类&amp;派生类（继承）</h2>
+<h2 id="3函数重载虚函数多态">3.函数重载&amp;虚函数（多态）</h2>
+<h2 id="4抽象">4.抽象</h2>
+<h2 id="5接口抽象类">5.接口（抽象类）</h2>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[浮点数的存储方法以及python的Decimal]]></title>
         <id>https://cactusii.github.io/post/fu-dian-shu-de-cun-chu-fang-fa-yi-ji-python-de-decimal/</id>
