@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cactusii.github.io/</id>
     <title>Cactuii&apos;s Blog</title>
-    <updated>2020-09-21T15:24:22.063Z</updated>
+    <updated>2020-09-22T02:03:09.197Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cactusii.github.io/"/>
     <link rel="self" href="https://cactusii.github.io/atom.xml"/>
@@ -11,7 +11,53 @@
     <icon>https://cactusii.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Cactuii&apos;s Blog</rights>
     <entry>
-        <title type="html"><![CDATA[排序算法]]></title>
+        <title type="html"><![CDATA[【数据结构】链表的存储]]></title>
+        <id>https://cactusii.github.io/post/shu-ju-jie-gou-lian-biao-de-cun-chu/</id>
+        <link href="https://cactusii.github.io/post/shu-ju-jie-gou-lian-biao-de-cun-chu/">
+        </link>
+        <updated>2020-09-22T00:33:29.000Z</updated>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://cactusii.github.io//post-images/1600735871236.png" alt="" loading="lazy"></figure>
+<h2 id="定义链表结构体">定义链表结构体</h2>
+<pre><code class="language-c">typedef struct ListNode
+{
+    int val;
+    struct ListNode *next;
+}ListNode;
+</code></pre>
+<h2 id="遍历链表">遍历链表</h2>
+<pre><code class="language-c">void print(ListNode *head)
+{
+    for(ListNode *cursor = head; cursor; cursor = cursor-&gt;next)
+    {
+        printf(&quot;%d-&gt;&quot;,cursor-&gt;val);
+    }
+}
+</code></pre>
+<h2 id="尾部插入">尾部插入</h2>
+<pre><code class="language-c">void lpush_back(ListNode *head, int val)
+{
+    ListNode *node = (ListNode*)malloc(sizeof(ListNode));
+    ListNode *cursor = head;
+    node-&gt;val = val;
+    while(cursor-&gt;next) cursor = cursor-&gt;next;
+    cursor-&gt;next = node;
+}
+</code></pre>
+<h2 id="头部插入">头部插入</h2>
+<pre><code class="language-c">void lpush_front(ListNode **head, int val)
+{
+    ListNode *node = (ListNode*)malloc(sizeof(ListNode));
+    node-&gt;val = val;
+    node-&gt;next =*head;
+    *head = node;
+}
+</code></pre>
+<h2 id="头部删除">头部删除</h2>
+<h2 id="删除指定节点">删除指定节点</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【数据结构】排序算法]]></title>
         <id>https://cactusii.github.io/post/pai-xu-suan-fa/</id>
         <link href="https://cactusii.github.io/post/pai-xu-suan-fa/">
         </link>
@@ -109,7 +155,17 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[C++ STL]]></title>
+        <title type="html"><![CDATA[【C++】没用的小知识]]></title>
+        <id>https://cactusii.github.io/post/cmei-yong-de-xiao-zhi-shi/</id>
+        <link href="https://cactusii.github.io/post/cmei-yong-de-xiao-zhi-shi/">
+        </link>
+        <updated>2020-09-21T14:42:03.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="c编译器">C++编译器</h2>
+<p>C/C++常用的编译器是由GNU开发的GCC编译器。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【C++】 STL]]></title>
         <id>https://cactusii.github.io/post/c-stl/</id>
         <link href="https://cactusii.github.io/post/c-stl/">
         </link>
@@ -118,7 +174,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[C++基基基基础（面向对象）]]></title>
+        <title type="html"><![CDATA[【C++】面向对象基基基基础]]></title>
         <id>https://cactusii.github.io/post/cji-ji-ji-ji-chu-mian-xiang-dui-xiang/</id>
         <link href="https://cactusii.github.io/post/cji-ji-ji-ji-chu-mian-xiang-dui-xiang/">
         </link>

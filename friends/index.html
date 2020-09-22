@@ -9,7 +9,7 @@
 <meta name="description" content="我咸甚，此鱼何能及我也！">
 <meta name="theme-color" content="#000">
 <title>Cactuii&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1600701856360">
+<link rel="shortcut icon" href="/favicon.ico?v=1600740151897">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -193,7 +193,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">7</span>
+        <span class="site-item-stat-count">9</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -519,6 +519,49 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/shu-ju-jie-gou-lian-biao-de-cun-chu/"" data-c="
+          &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://cactusii.github.io//post-images/1600735871236.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;定义链表结构体&#34;&gt;定义链表结构体&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;typedef struct ListNode
+{
+    int val;
+    struct ListNode *next;
+}ListNode;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;遍历链表&#34;&gt;遍历链表&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void print(ListNode *head)
+{
+    for(ListNode *cursor = head; cursor; cursor = cursor-&amp;gt;next)
+    {
+        printf(&amp;quot;%d-&amp;gt;&amp;quot;,cursor-&amp;gt;val);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;尾部插入&#34;&gt;尾部插入&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void lpush_back(ListNode *head, int val)
+{
+    ListNode *node = (ListNode*)malloc(sizeof(ListNode));
+    ListNode *cursor = head;
+    node-&amp;gt;val = val;
+    while(cursor-&amp;gt;next) cursor = cursor-&amp;gt;next;
+    cursor-&amp;gt;next = node;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;头部插入&#34;&gt;头部插入&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void lpush_front(ListNode **head, int val)
+{
+    ListNode *node = (ListNode*)malloc(sizeof(ListNode));
+    node-&amp;gt;val = val;
+    node-&amp;gt;next =*head;
+    *head = node;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;头部删除&#34;&gt;头部删除&lt;/h2&gt;
+&lt;h2 id=&#34;删除指定节点&#34;&gt;删除指定节点&lt;/h2&gt;
+">【数据结构】链表的存储</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/pai-xu-suan-fa/"" data-c="
           &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://cactusii.github.io//post-images/1600700055304.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;h2 id=&#34;稳定排序&#34;&gt;稳定排序&lt;/h2&gt;
@@ -610,13 +653,20 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;8堆排序&#34;&gt;8.堆排序&lt;/h3&gt;
 &lt;p&gt;不断拿出堆顶结点然后调整大(小)顶堆的过程。&lt;/p&gt;
-">排序算法</a>
+">【数据结构】排序算法</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/cmei-yong-de-xiao-zhi-shi/"" data-c="
+          &lt;h2 id=&#34;c编译器&#34;&gt;C++编译器&lt;/h2&gt;
+&lt;p&gt;C/C++常用的编译器是由GNU开发的GCC编译器。&lt;/p&gt;
+">【C++】没用的小知识</a>
       </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/c-stl/"" data-c="
           &lt;p&gt;A&lt;/p&gt;
-">C++ STL</a>
+">【C++】 STL</a>
       </div>
       
       <div class="item">
@@ -626,7 +676,7 @@
 &lt;h2 id=&#34;3函数重载虚函数多态&#34;&gt;3.函数重载&amp;amp;虚函数（多态）&lt;/h2&gt;
 &lt;h2 id=&#34;4抽象&#34;&gt;4.抽象&lt;/h2&gt;
 &lt;h2 id=&#34;5接口抽象类&#34;&gt;5.接口（抽象类）&lt;/h2&gt;
-">C++基基基基础（面向对象）</a>
+">【C++】面向对象基基基基础</a>
       </div>
       
       <div class="item">
