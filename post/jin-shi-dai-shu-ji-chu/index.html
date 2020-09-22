@@ -5,11 +5,11 @@
   <meta charset="UTF-8" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="Gridea静态个人博客">
+<meta name="keywords" content="">
 <meta name="description" content="我咸甚，此鱼何能及我也！">
 <meta name="theme-color" content="#000">
 <title>近世代数基础 | Cactuii&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1600740151897">
+<link rel="shortcut icon" href="/favicon.ico?v=1600758616787">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -216,13 +216,13 @@
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">4</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">4</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -925,6 +925,60 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/shu-ju-jie-gou-bing-cha-ji/"" data-c="
+          &lt;p&gt;并查集主要用于处理一些不相交集合的问题。&lt;/p&gt;
+&lt;p&gt;每个集合包含一个或多个元素，并且有一个代表元素。对于给定一个元素，可以快速找到其所属集合的代表元素，这样判断两个元素是否属于同一集合，只需要判断二者所属集合的代表元素是否一致即可。&lt;/p&gt;
+&lt;p&gt;如果要合并两个集合，只需要将其中一个集合的代表元素设为另一个集合的代表元素即可。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;涉及到的主要操作有两个&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;合并：把两个元素所属集合合并（前提是两个集合不相交）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void join(int a, int b)
+{
+    int tmpa,tmpb;
+    tmpa = find_root(a);
+    tmpb = find_root(b);
+    if(tmpa!=tmpb)
+        root[tmpa] = tmpb;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;查找根（代表元素）：找到某一个元素的所属集合的根。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;int find_root(int x)
+{
+    while(x!=root[x])
+        x = root[x];
+    return x;
+}
+
+//root[x]=y表示x的根是y，初始化时，每个元素的根都是自己
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;路径压缩&lt;/strong&gt;&lt;br&gt;
+查找根最坏的一种情况是一条常常的链，这时候查找的效率会大大降低，此时可以使用路径压缩，即将每个元素直接指向根节点 ，如下图。&lt;br&gt;
+&lt;img src=&#34;https://cactusii.github.io//post-images/1600744618773.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;我们可以在查找的过程中把每个元素的父节点直接设成根节点。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;int find_root(int x)
+{
+    int root_of_x = x; //根节点
+   
+    while(root_of_x != root[root_of_x])
+        root_of_x = root[root_of_x];
+
+    while(x != root[x]) //将每个子节点的父节点都换成根节点
+    {
+        int tmp = x;
+        x = root[x];
+        root[tmp] = root_of_x;
+    }
+    return root_of_x;
+}
+&lt;/code&gt;&lt;/pre&gt;
+">【数据结构】并查集</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/shu-ju-jie-gou-lian-biao-de-cun-chu/"" data-c="
           &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://cactusii.github.io//post-images/1600735871236.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;h2 id=&#34;定义链表结构体&#34;&gt;定义链表结构体&lt;/h2&gt;
@@ -1067,12 +1121,6 @@
           &lt;h2 id=&#34;c编译器&#34;&gt;C++编译器&lt;/h2&gt;
 &lt;p&gt;C/C++常用的编译器是由GNU开发的GCC编译器。&lt;/p&gt;
 ">【C++】没用的小知识</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/c-stl/"" data-c="
-          &lt;p&gt;A&lt;/p&gt;
-">【C++】 STL</a>
       </div>
       
       <div class="item">
@@ -1579,6 +1627,8 @@ if __name__ == &#39;__main__&#39;:
   });
 </script>
 
+
+<script src="/media/js/mouse/peace.js"></script>
 
 
 

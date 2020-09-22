@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cactusii.github.io/</id>
     <title>Cactuii&apos;s Blog</title>
-    <updated>2020-09-22T02:03:09.197Z</updated>
+    <updated>2020-09-22T07:10:23.164Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cactusii.github.io/"/>
     <link rel="self" href="https://cactusii.github.io/atom.xml"/>
@@ -10,6 +10,63 @@
     <logo>https://cactusii.github.io/images/avatar.png</logo>
     <icon>https://cactusii.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Cactuii&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[【数据结构】并查集]]></title>
+        <id>https://cactusii.github.io/post/shu-ju-jie-gou-bing-cha-ji/</id>
+        <link href="https://cactusii.github.io/post/shu-ju-jie-gou-bing-cha-ji/">
+        </link>
+        <updated>2020-09-22T02:23:07.000Z</updated>
+        <content type="html"><![CDATA[<p>并查集主要用于处理一些不相交集合的问题。</p>
+<p>每个集合包含一个或多个元素，并且有一个代表元素。对于给定一个元素，可以快速找到其所属集合的代表元素，这样判断两个元素是否属于同一集合，只需要判断二者所属集合的代表元素是否一致即可。</p>
+<p>如果要合并两个集合，只需要将其中一个集合的代表元素设为另一个集合的代表元素即可。</p>
+<hr>
+<p><strong>涉及到的主要操作有两个</strong></p>
+<ol>
+<li>合并：把两个元素所属集合合并（前提是两个集合不相交）</li>
+</ol>
+<pre><code class="language-c">void join(int a, int b)
+{
+    int tmpa,tmpb;
+    tmpa = find_root(a);
+    tmpb = find_root(b);
+    if(tmpa!=tmpb)
+        root[tmpa] = tmpb;
+}
+</code></pre>
+<ol start="2">
+<li>查找根（代表元素）：找到某一个元素的所属集合的根。</li>
+</ol>
+<pre><code class="language-c">int find_root(int x)
+{
+    while(x!=root[x])
+        x = root[x];
+    return x;
+}
+
+//root[x]=y表示x的根是y，初始化时，每个元素的根都是自己
+</code></pre>
+<p><strong>路径压缩</strong><br>
+查找根最坏的一种情况是一条常常的链，这时候查找的效率会大大降低，此时可以使用路径压缩，即将每个元素直接指向根节点 ，如下图。<br>
+<img src="https://cactusii.github.io//post-images/1600744618773.jpg" alt="" loading="lazy"></p>
+<p>我们可以在查找的过程中把每个元素的父节点直接设成根节点。</p>
+<pre><code class="language-c">int find_root(int x)
+{
+    int root_of_x = x; //根节点
+   
+    while(root_of_x != root[root_of_x])
+        root_of_x = root[root_of_x];
+
+    while(x != root[x]) //将每个子节点的父节点都换成根节点
+    {
+        int tmp = x;
+        x = root[x];
+        root[tmp] = root_of_x;
+    }
+    return root_of_x;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【数据结构】链表的存储]]></title>
         <id>https://cactusii.github.io/post/shu-ju-jie-gou-lian-biao-de-cun-chu/</id>
@@ -162,15 +219,6 @@
         <updated>2020-09-21T14:42:03.000Z</updated>
         <content type="html"><![CDATA[<h2 id="c编译器">C++编译器</h2>
 <p>C/C++常用的编译器是由GNU开发的GCC编译器。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[【C++】 STL]]></title>
-        <id>https://cactusii.github.io/post/c-stl/</id>
-        <link href="https://cactusii.github.io/post/c-stl/">
-        </link>
-        <updated>2020-09-21T09:34:05.000Z</updated>
-        <content type="html"><![CDATA[<p>A</p>
 ]]></content>
     </entry>
     <entry>
