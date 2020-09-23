@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cactusii.github.io/</id>
     <title>Cactuii&apos;s Blog</title>
-    <updated>2020-09-22T07:12:39.664Z</updated>
+    <updated>2020-09-23T08:13:24.714Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cactusii.github.io/"/>
     <link rel="self" href="https://cactusii.github.io/atom.xml"/>
@@ -10,6 +10,137 @@
     <logo>https://cactusii.github.io/images/avatar.png</logo>
     <icon>https://cactusii.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Cactuii&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[【数据结构】二叉树]]></title>
+        <id>https://cactusii.github.io/post/shu-ju-jie-gou-er-cha-shu/</id>
+        <link href="https://cactusii.github.io/post/shu-ju-jie-gou-er-cha-shu/">
+        </link>
+        <updated>2020-09-23T06:30:30.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="二叉树的存储">二叉树的存储</h2>
+<h3 id="1-顺序存储结构">1. 顺序存储结构</h3>
+<figure data-type="image" tabindex="1"><img src="https://cactusii.github.io//post-images/1600843894170.jpg" alt="" loading="lazy"></figure>
+<h3 id="2链式存储">2.链式存储</h3>
+<figure data-type="image" tabindex="2"><img src="https://cactusii.github.io//post-images/1600843945025.jpg" alt="" loading="lazy"></figure>
+<pre><code class="language-c++">typedef struct node
+{
+    int data;
+    struct node *lchild, *rchild;
+}Bitree;
+</code></pre>
+<h2 id="二叉树的访问">二叉树的访问</h2>
+<h3 id="先序访问">先序访问</h3>
+<pre><code class="language-c++">void preOrderTraveral(Bitree *node) //递归
+{
+    if(node == NULL)
+    {
+        return;
+    }
+    printf(&quot;%d &quot;,node-&gt;data);
+    preOrderTraveral(node-&gt;lchild);
+    preOrderTraveral(node-&gt;rchild);
+}
+
+
+void _preOrderTraveral(Bitree *node) //非递归
+{
+    stack&lt;Bitree*&gt; s;
+    Bitree *tmp_node = node;
+    while(tmp_node!=NULL || !s.empty())
+    {
+        while(tmp_node != NULL)
+        {
+            printf(&quot;%d &quot;,tmp_node-&gt;data);
+            s.push(tmp_node);
+            tmp_node = tmp_node-&gt;lchild;
+        }
+        if(!s.empty())
+        {
+            tmp_node = s.top();
+            s.pop();
+            tmp_node = tmp_node-&gt;rchild;
+        }
+    }
+}
+</code></pre>
+<h3 id="中序访问">中序访问</h3>
+<pre><code class="language-c++">void inOrderTraveral(Bitree *node)
+{
+    if(node == NULL)
+    {
+        return;
+    }
+    inOrderTraveral(node-&gt;lchild);
+    printf(&quot;%d &quot;,node-&gt;data);
+    inOrderTraveral(node-&gt;rchild);
+}
+
+
+void _inOrderTraveral(Bitree *node)
+{
+    stack&lt;Bitree*&gt; s;
+    Bitree *tmp_node = node;
+    while(tmp_node!=NULL || !s.empty())
+    {
+        while(tmp_node != NULL)
+        {
+            s.push(tmp_node);
+            tmp_node = tmp_node-&gt;lchild;
+        }
+        if(!s.empty())
+        {
+            tmp_node = s.top();
+            s.pop();
+            printf(&quot;%d &quot;,tmp_node-&gt;data);
+            tmp_node = tmp_node-&gt;rchild;
+        }
+    }
+}
+</code></pre>
+<h3 id="后序访问">后序访问</h3>
+<pre><code class="language-c++">void postOrderTraveral(Bitree *node)
+{
+    if(node == NULL)
+    {
+        return;
+    }
+    postOrderTraveral(node-&gt;lchild);
+    postOrderTraveral(node-&gt;rchild);
+    printf(&quot;%d &quot;,node-&gt;data);
+}
+
+
+void _postOrderTraveral(Bitree *node)
+{
+    stack&lt;Bitree*&gt; s;
+    Bitree *tmp_node = node, *lastVisit = NULL;
+    while(tmp_node!=NULL || !s.empty())
+    {
+        while(tmp_node != NULL) //左节点入栈
+        {
+            s.push(tmp_node);
+            tmp_node = tmp_node-&gt;lchild;
+        }
+        if(!s.empty())
+        {
+            tmp_node = s.top();
+            s.pop();
+            if(tmp_node-&gt;rchild==NULL || tmp_node-&gt;rchild==lastVisit) //此节点右孩子为空或者已访问过，那么访问此节点
+            {
+                printf(&quot;%d &quot;,tmp_node-&gt;data);
+                lastVisit = tmp_node;
+                tmp_node = NULL;
+            }
+            else
+            {
+                s.push(tmp_node);
+                tmp_node = tmp_node-&gt;rchild;
+            }
+        }
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【数据结构】并查集]]></title>
         <id>https://cactusii.github.io/post/shu-ju-jie-gou-bing-cha-ji/</id>
