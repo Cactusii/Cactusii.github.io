@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cactusii.github.io/</id>
     <title>Cactuii&apos;s Blog</title>
-    <updated>2020-09-23T08:13:24.714Z</updated>
+    <updated>2020-09-25T01:24:13.660Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cactusii.github.io/"/>
     <link rel="self" href="https://cactusii.github.io/atom.xml"/>
@@ -137,6 +137,68 @@ void _postOrderTraveral(Bitree *node)
             }
         }
     }
+}
+</code></pre>
+<h2 id="二叉搜索树">二叉搜索树</h2>
+<p>左子树的所有结点值均小于根结点的值；右子树的所有结点值均大于根结点的值；左子树也是二叉搜索树。</p>
+<h3 id="二叉搜索树的构建">二叉搜索树的构建</h3>
+<pre><code class="language-c++">typedef struct TreeNode
+{
+    int val;
+    struct TreeNode *lchild, *rchild;
+}TreeNode;
+
+void Create(TreeNode *root, int tmp)
+{
+    if(!root)
+    {
+        root = (TreeNode *)malloc(sizeof(TreeNode));
+        root-&gt;val = tmp;
+        return;
+    }
+    if(root-&gt;val &lt; tmp)
+        Create(root-&gt;lchild,tmp);
+    else
+        Create(root-&gt;rchild,tmp);
+}
+</code></pre>
+<h3 id="二叉搜索树结点的删除">二叉搜索树结点的删除</h3>
+<ol>
+<li>如果删除的结点只有左孩子或者只有有孩子，那么直接删除，然后把其孩子加到父节点上。<br>
+<img src="https://cactusii.github.io//post-images/1600996986954.jpg" alt="" loading="lazy"></li>
+<li>如果删除的结点有左孩子和有孩子，那么删除此节点后，需要将其左子树的最大结点或者右子树的最小节点替换上来。<img src="https://cactusii.github.io//post-images/1600997012992.jpg" alt="" loading="lazy"></li>
+</ol>
+<p>二叉搜索树的中序遍历是递增顺序</p>
+<h2 id="由中序和后序还原二叉树">由中序和后序还原二叉树</h2>
+<ol>
+<li>后序中右起第一位3肯定是根结点，我们可以据此找到中序中根结点的位置rootin；</li>
+<li>中序中根结点左边就是左子树结点，右边就是右子树结点，即[左子树结点，根结点，右子树结点]，我们就可以得出左子树结点个数为int left_count = tmp - inleft;；</li>
+<li>后序中结点分布应该是：[左子树结点，右子树结点，根结点]；</li>
+<li>根据前一步确定的左子树个数，可以确定后序中左子树结点和右子树结点的范围；</li>
+<li>如果我们要前序遍历生成二叉树的话，下一层递归应该是：</li>
+</ol>
+<ul>
+<li>左子树：root-&gt;left = pre_order(中序左子树范围，后序左子树范围，中序序列，后序序列);；</li>
+<li>右子树：root-&gt;right = pre_order(中序右子树范围，后序右子树范围，中序序列，后序序列);。</li>
+</ul>
+<ol start="6">
+<li>每一层递归都要返回当前根结点root；</li>
+</ol>
+<pre><code class="language-c++">TreeNode* buildTree(vector&lt;int&gt;&amp; inorder, vector&lt;int&gt;&amp; postorder) {
+    TreeNode *root = pre_order(0,inorder.size()-1, 0,postorder.size()-1, inorder, postorder);
+    return root;
+}
+
+TreeNode *pre_order(int inleft, int inright, int postleft, int postright, vector&lt;int&gt; &amp;inorder, vector&lt;int&gt;&amp; postorder)
+{
+    if(inleft&gt;inright) return NULL;
+    TreeNode *root = new TreeNode(postorder[postright]);
+    int tmp = inleft;
+    while(inorder[tmp]!=postorder[postright]) tmp++;
+    int left_count = tmp - inleft; //左子树的结点个数
+    root-&gt;left = pre_order(inleft,tmp-1,postleft,postleft+left_count-1,inorder,postorder);
+    root-&gt;right = pre_order(tmp+1,inright,postleft+left_count,postright-1,inorder,postorder);
+    return root;
 }
 </code></pre>
 ]]></content>

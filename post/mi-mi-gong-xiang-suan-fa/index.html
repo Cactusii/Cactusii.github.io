@@ -9,7 +9,7 @@
 <meta name="description" content="我咸甚，此鱼何能及我也！">
 <meta name="theme-color" content="#000">
 <title>秘密共享算法 | Cactuii&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1600848796646">
+<link rel="shortcut icon" href="/favicon.ico?v=1600997044143">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -1312,6 +1312,68 @@ void _postOrderTraveral(Bitree *node)
             }
         }
     }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;二叉搜索树&#34;&gt;二叉搜索树&lt;/h2&gt;
+&lt;p&gt;左子树的所有结点值均小于根结点的值；右子树的所有结点值均大于根结点的值；左子树也是二叉搜索树。&lt;/p&gt;
+&lt;h3 id=&#34;二叉搜索树的构建&#34;&gt;二叉搜索树的构建&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;typedef struct TreeNode
+{
+    int val;
+    struct TreeNode *lchild, *rchild;
+}TreeNode;
+
+void Create(TreeNode *root, int tmp)
+{
+    if(!root)
+    {
+        root = (TreeNode *)malloc(sizeof(TreeNode));
+        root-&amp;gt;val = tmp;
+        return;
+    }
+    if(root-&amp;gt;val &amp;lt; tmp)
+        Create(root-&amp;gt;lchild,tmp);
+    else
+        Create(root-&amp;gt;rchild,tmp);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;二叉搜索树结点的删除&#34;&gt;二叉搜索树结点的删除&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;如果删除的结点只有左孩子或者只有有孩子，那么直接删除，然后把其孩子加到父节点上。&lt;br&gt;
+&lt;img src=&#34;https://cactusii.github.io//post-images/1600996986954.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;li&gt;如果删除的结点有左孩子和有孩子，那么删除此节点后，需要将其左子树的最大结点或者右子树的最小节点替换上来。&lt;img src=&#34;https://cactusii.github.io//post-images/1600997012992.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;二叉搜索树的中序遍历是递增顺序&lt;/p&gt;
+&lt;h2 id=&#34;由中序和后序还原二叉树&#34;&gt;由中序和后序还原二叉树&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;后序中右起第一位3肯定是根结点，我们可以据此找到中序中根结点的位置rootin；&lt;/li&gt;
+&lt;li&gt;中序中根结点左边就是左子树结点，右边就是右子树结点，即[左子树结点，根结点，右子树结点]，我们就可以得出左子树结点个数为int left_count = tmp - inleft;；&lt;/li&gt;
+&lt;li&gt;后序中结点分布应该是：[左子树结点，右子树结点，根结点]；&lt;/li&gt;
+&lt;li&gt;根据前一步确定的左子树个数，可以确定后序中左子树结点和右子树结点的范围；&lt;/li&gt;
+&lt;li&gt;如果我们要前序遍历生成二叉树的话，下一层递归应该是：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;左子树：root-&amp;gt;left = pre_order(中序左子树范围，后序左子树范围，中序序列，后序序列);；&lt;/li&gt;
+&lt;li&gt;右子树：root-&amp;gt;right = pre_order(中序右子树范围，后序右子树范围，中序序列，后序序列);。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;每一层递归都要返回当前根结点root；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;TreeNode* buildTree(vector&amp;lt;int&amp;gt;&amp;amp; inorder, vector&amp;lt;int&amp;gt;&amp;amp; postorder) {
+    TreeNode *root = pre_order(0,inorder.size()-1, 0,postorder.size()-1, inorder, postorder);
+    return root;
+}
+
+TreeNode *pre_order(int inleft, int inright, int postleft, int postright, vector&amp;lt;int&amp;gt; &amp;amp;inorder, vector&amp;lt;int&amp;gt;&amp;amp; postorder)
+{
+    if(inleft&amp;gt;inright) return NULL;
+    TreeNode *root = new TreeNode(postorder[postright]);
+    int tmp = inleft;
+    while(inorder[tmp]!=postorder[postright]) tmp++;
+    int left_count = tmp - inleft; //左子树的结点个数
+    root-&amp;gt;left = pre_order(inleft,tmp-1,postleft,postleft+left_count-1,inorder,postorder);
+    root-&amp;gt;right = pre_order(tmp+1,inright,postleft+left_count,postright-1,inorder,postorder);
+    return root;
 }
 &lt;/code&gt;&lt;/pre&gt;
 ">【数据结构】二叉树</a>
