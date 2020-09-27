@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cactusii.github.io/</id>
     <title>Cactuii&apos;s Blog</title>
-    <updated>2020-09-25T01:24:13.660Z</updated>
+    <updated>2020-09-27T04:16:11.439Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cactusii.github.io/"/>
     <link rel="self" href="https://cactusii.github.io/atom.xml"/>
@@ -168,6 +168,16 @@ void Create(TreeNode *root, int tmp)
 <img src="https://cactusii.github.io//post-images/1600996986954.jpg" alt="" loading="lazy"></li>
 <li>如果删除的结点有左孩子和有孩子，那么删除此节点后，需要将其左子树的最大结点或者右子树的最小节点替换上来。<img src="https://cactusii.github.io//post-images/1600997012992.jpg" alt="" loading="lazy"></li>
 </ol>
+<h3 id="找到二叉搜索树两个结点的最近的双亲结点">找到二叉搜索树两个结点的最近的双亲结点</h3>
+<p>利用二叉搜索树的特点，遍历整个二叉树，如果两个节点都小于当前遍历结点，那么递归到其左子树；如果两个结点都大于当前遍历结点，那么递归到其右子树上，如果一个大于一个小于当前遍历结点，那么此结点即为其最近的双亲结点。</p>
+<pre><code class="language-c++">TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    if(root-&gt;val &gt; p-&gt;val &amp;&amp; root-&gt;val &gt; q-&gt;val)
+        return lowestCommonAncestor(root-&gt;left,p,q);
+    else if (root-&gt;val &lt; p-&gt;val &amp;&amp; root-&gt;val &lt; q-&gt;val)
+        return lowestCommonAncestor(root-&gt;right,p,q);
+    return root;
+}
+</code></pre>
 <p>二叉搜索树的中序遍历是递增顺序</p>
 <h2 id="由中序和后序还原二叉树">由中序和后序还原二叉树</h2>
 <ol>
