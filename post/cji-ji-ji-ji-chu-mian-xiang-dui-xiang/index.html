@@ -9,7 +9,7 @@
 <meta name="description" content="我咸甚，此鱼何能及我也！">
 <meta name="theme-color" content="#000">
 <title>【C++】面向对象基基基基础 | Cactuii&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1601271484012">
+<link rel="shortcut icon" href="/favicon.ico?v=1601279968815">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -211,7 +211,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">12</span>
+        <span class="site-item-stat-count">13</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1545,6 +1545,32 @@ TreeNode *pre_order(int inleft, int inright, int postleft, int postright, vector
         <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/cmei-yong-de-xiao-zhi-shi/"" data-c="
           &lt;h2 id=&#34;c编译器&#34;&gt;C++编译器&lt;/h2&gt;
 &lt;p&gt;C/C++常用的编译器是由GNU开发的GCC编译器。&lt;/p&gt;
+&lt;h2 id=&#34;堆和栈的区别&#34;&gt;堆和栈的区别&lt;/h2&gt;
+&lt;h3 id=&#34;内存分配&#34;&gt;内存分配&lt;/h3&gt;
+&lt;p&gt;一个由C/C++编译的程序占用的内存分为以下几个部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;栈区stack：由编译器自动分配释放，存放函数的参数值，局部变量等，其操作方式类似于数据结构中的栈。&lt;/li&gt;
+&lt;li&gt;堆区heap：一般由程序员分配释放，若程序员不释放，程序结束时可能由OS回收。与数据结构的堆是两回事。分配方式类似于链表。&lt;/li&gt;
+&lt;li&gt;全局区（静态区）static：全局变量和静态变量的存储是放在一起的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域，程序结束后由系统释放。&lt;/li&gt;
+&lt;li&gt;文字常量区：常量字符串就是存放在这里。程序结束后由系统释放。&lt;/li&gt;
+&lt;li&gt;程序代码区：存放在函数体的二进制代码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;int   a   =   0;  // 全局初始化区
+char   *p1;   //全局未初始化区    
+main()    
+{    
+    int   b;   //栈    
+    char   s[]   =   &amp;quot;abc&amp;quot;;   //栈    
+    char   *p2;   //栈    
+    char   *p3   =   &amp;quot;123456&amp;quot;;   //123456/0在常量区，p3在栈上。    
+    static   int   c   =0；   //全局（静态）初始化区    
+    p1 = (char   *)malloc(10);    
+    p2 = (char   *)malloc(20);    
+    p3 = new char[10];
+    //p1p2p3分配得来得10和20字节的区域就在堆区。    
+    strcpy(p1,   &amp;quot;123456&amp;quot;);   //123456/0放在常量区，编译器可能会将它与p3所指向的&amp;quot;123456&amp;quot;优化成一个地方.
+}  
+&lt;/code&gt;&lt;/pre&gt;
 ">【C++】没用的小知识</a>
       </div>
       
@@ -1617,6 +1643,105 @@ int main(void)
 }
 &lt;/code&gt;&lt;/pre&gt;
 ">浮点数的存储方法以及python的Decimal</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/ke-yan-xiao-bai/"" data-c="
+          &lt;h2 id=&#34;1什么是sci&#34;&gt;1.什么是SCI&lt;/h2&gt;
+&lt;p&gt;SCI(Science Citation Index)不是特指某一个学术期刊，而实一个索引，给已经发表的文章建立一个索引，方便查找以及引用的跟踪，可以理解成一座图书馆的图书索引，通过这些索引可以找到想要的论文，阅读和引用，不是所有的科研论文都可以纳入SCI的索引的范围内，只有SCI组织觉得某些期刊可以引用的，才会被纳入进来，其他的索引，例如EI，ESI&lt;/p&gt;
+&lt;h2 id=&#34;2期刊论文&#34;&gt;2.期刊论文&lt;/h2&gt;
+&lt;p&gt;通常期刊论文会比较完整、系统，好的期刊会被SCI收纳引用，期刊论文相对于会议论文发表更难一些，大部分高校和用人单位看的是期刊论文。不需要去开会，需要多轮的审稿。&lt;/p&gt;
+&lt;p&gt;期刊的种类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提出新颖的方法，但没有完整的解决方案&lt;/li&gt;
+&lt;li&gt;Survey 归纳总结该领域的工作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3会议论文&#34;&gt;3.会议论文&lt;/h2&gt;
+&lt;p&gt;会议论文是需要你去参加会议，宣讲你的研究成果&lt;br&gt;
+查找会议的相关信息：www.edas.info&lt;br&gt;
+一轮审稿，通过与不通过都是一轮&lt;/p&gt;
+&lt;p&gt;在写之前应该先看看论文的Author Guidelines&lt;/p&gt;
+&lt;h2 id=&#34;4影响因子&#34;&gt;4.影响因子&lt;/h2&gt;
+&lt;p&gt;一般通过这个来看这个期刊的影响力，由论文引用量等等的影响。&lt;/p&gt;
+&lt;h2 id=&#34;5sci划区&#34;&gt;5.SCI划区&lt;/h2&gt;
+&lt;p&gt;SCI期刊与国内期刊有所不同，国内期刊有省级、国家级、核心级的划分，SCI期刊也有级别的划分，不同的是SCI对期刊进行了分区，分区标准有两类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;中科院的分区
+&lt;ul&gt;
+&lt;li&gt;共分为四区，影响因子5%为1区、6%&lt;sub&gt;20%为2区、20%&lt;/sub&gt;50%为3区、之后为4区。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;jcr分区（汤森路透分区）
+&lt;ul&gt;
+&lt;li&gt;共分为1、2、3、4区，1区影响因子为前25%、2区25%&lt;sub&gt;50%、3区50%&lt;/sub&gt;75%、之后为4区。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;CNKI收录的大部分是国内的硕博论文和国内的期刊&lt;/p&gt;
+&lt;h2 id=&#34;干货&#34;&gt;干货：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;读&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;怎么搜？&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;首先得先学会查业内相关的文献，工具有Google Scholar，Web of Science，Scopus，然后输入特定的方向，例如在Google Scholar上搜索网络安全，然后左侧有一个筛选，选择2020年最新的&lt;img src=&#34;https://cactusii.github.io//post-images/1600342772850.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;    &lt;font color=&#39;red&#39;&gt;然后每个方向每年有多少篇论文整理下，对比下，这样做是为了确定两个东西，一个是你得确定做这个的community不太大，太大了论文太多你入门很困难，第二是在此基础上确保你想做的这个是个朝阳产业，就是一年论文比一年多的那种，夕阳产业就别做了。而且你在一个小的方向上做一段时间后你就会发现相关的其它小方向就触类旁通了。&lt;/font&gt;&lt;/li&gt;
+&lt;li&gt;阅读几个方向的论文后，定下自己的方向，然后就海量的读论文。先读行业内顶刊的综述类论文，对框架进行了解，然后再选择行业内最新的论文读，看看最新的创新点都在什么地方，这种地方还有没有漏洞或者有人没做过的，整理出来，最后筛选下出来5-10个ideas，就可以正式进实验室啦。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;怎么管？&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;文献管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;怎么读？&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;写&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;英文写作能力&lt;/li&gt;
+&lt;li&gt;学术论文写作方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;综述选题背景&lt;br&gt;
+总结前人成果&lt;br&gt;
+提出实验方案&lt;br&gt;
+分析我的优秀&lt;br&gt;
+致谢&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;投稿&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;怎么找合适的期刊\会议&lt;/li&gt;
+&lt;li&gt;投了之后的一系列事情&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;项目&#34;&gt;项目&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;横向：企业/机构合作的项目，适合专硕做&lt;/li&gt;
+&lt;li&gt;纵向：国家部委、省市的研究课题(国家自然科学基金)，有论文指标的要求，学硕专硕都适合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;三年规划&#34;&gt;三年规划&lt;/h2&gt;
+&lt;p&gt;研一：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上课&lt;/li&gt;
+&lt;li&gt;读论文&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;研二：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;写论文发论文&lt;/li&gt;
+&lt;li&gt;做项目&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;以上内容部分参考自：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;作者：Leslie Young&lt;br&gt;
+链接：https://www.zhihu.com/question/385466539/answer/1133113105&lt;br&gt;
+来源：知乎&lt;br&gt;
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&lt;/p&gt;
+&lt;/blockquote&gt;
+">科研小白进阶路</a>
       </div>
       
       <div class="item">
