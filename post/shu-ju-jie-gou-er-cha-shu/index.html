@@ -9,7 +9,7 @@
 <meta name="description" content="我咸甚，此鱼何能及我也！">
 <meta name="theme-color" content="#000">
 <title>【数据结构】二叉树 | Cactuii&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1601175705177">
+<link rel="shortcut icon" href="/favicon.ico?v=1601271484012">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -39,7 +39,7 @@
 
 
   <meta name="description" content="【数据结构】二叉树" />
-  <meta name="keywords" content="" />
+  <meta name="keywords" content="数据结构" />
 </head>
 
 <body>
@@ -211,19 +211,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">12</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -257,7 +257,7 @@
 <li><a href="#%E5%90%8E%E5%BA%8F%E8%AE%BF%E9%97%AE">后序访问</a></li>
 </ul>
 </li>
-<li><a href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91">二叉搜索树</a>
+<li><a href="#0%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91">0二叉搜索树</a>
 <ul>
 <li><a href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9E%84%E5%BB%BA">二叉搜索树的构建</a></li>
 <li><a href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%BB%93%E7%82%B9%E7%9A%84%E5%88%A0%E9%99%A4">二叉搜索树结点的删除</a></li>
@@ -546,13 +546,26 @@
     </span>
     
     <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://cactusii.github.io/tag/R7Kn8fhAA/">
+        <span>数据结构</span>
+      </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5<span class="language" data-lan="minute">分钟</span></span>
+      <span>6<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1058<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1143<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
@@ -681,7 +694,24 @@ void _postOrderTraveral(Bitree *node)
     }
 }
 </code></pre>
-<h2 id="二叉搜索树">二叉搜索树</h2>
+<p>层次遍历<br>
+二叉树的层次遍历基于广度优先搜索，<font color='red'>在访问第n层时，一定会访问完第n-1层</font>。</p>
+<pre><code class="language-c++">void levelOrder(Bitree *root)
+{
+    if(!root) return;
+    queue&lt;Bitree *&gt; q;
+    q.push(root);
+    while(!q.empty())
+    {
+        Bitree tmp = q.front();
+        q.pop();
+        printf(&quot;%d&quot;,tmp-&gt;data);
+        if(tmp-&gt;lchild) q.push(tmp.lchild);
+        if(tmp-&gt;rchild) q.push(tmp.rchild);
+    }
+}
+</code></pre>
+<h2 id="0二叉搜索树">0二叉搜索树</h2>
 <p>左子树的所有结点值均小于根结点的值；右子树的所有结点值均大于根结点的值；左子树也是二叉搜索树。</p>
 <h3 id="二叉搜索树的构建">二叉搜索树的构建</h3>
 <pre><code class="language-c++">typedef struct TreeNode
@@ -774,9 +804,15 @@ TreeNode *pre_order(int inleft, int inright, int postleft, int postright, vector
   </ul>
   <div class="tags">
     
+      <a href="https://cactusii.github.io/tag/R7Kn8fhAA/"># 数据结构</a>
+    
   </div>
   <div class="nav">
     <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Java技能树" href="https://cactusii.github.io/post/java-ji-neng-shu/">Java技能树</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Java技能树" href="https://cactusii.github.io/post/java-ji-neng-shu/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -1292,6 +1328,34 @@ TreeNode *pre_order(int inleft, int inright, int postleft, int postright, vector
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/suan-fa-shu-xue/"" data-c="
+          &lt;h2 id=&#34;分解质因数&#34;&gt;分解质因数&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void primeFactor(int n)
+{
+    for(int i=2;i&amp;lt;sqrt(n);i++)
+    {
+        while(n%i==0) //输出所有可以约去的数
+        {
+            cout&amp;lt;&amp;lt;i&amp;lt;&amp;lt;&amp;quot; &amp;quot;;
+            n/=i;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一个自然数的约数个数是它各质因数的次数分别加1相乘的积。&lt;br&gt;
+例：18的因数有：1，2，3，6，9，18。而其质因数有18=2×2×3。&lt;br&gt;
+&lt;img src=&#34;https://cactusii.github.io//post-images/1601271024765.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+即(1+1) * (2+1)=6个。&lt;/p&gt;
+">【算法】数学</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/java-ji-neng-shu/"" data-c="
+          &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://cactusii.github.io//post-images/1601201773805.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+">Java技能树</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/shu-ju-jie-gou-er-cha-shu/"" data-c="
           &lt;h2 id=&#34;二叉树的存储&#34;&gt;二叉树的存储&lt;/h2&gt;
 &lt;h3 id=&#34;1-顺序存储结构&#34;&gt;1. 顺序存储结构&lt;/h3&gt;
@@ -1416,7 +1480,24 @@ void _postOrderTraveral(Bitree *node)
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;二叉搜索树&#34;&gt;二叉搜索树&lt;/h2&gt;
+&lt;p&gt;层次遍历&lt;br&gt;
+二叉树的层次遍历基于广度优先搜索，&lt;font color=&#39;red&#39;&gt;在访问第n层时，一定会访问完第n-1层&lt;/font&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void levelOrder(Bitree *root)
+{
+    if(!root) return;
+    queue&amp;lt;Bitree *&amp;gt; q;
+    q.push(root);
+    while(!q.empty())
+    {
+        Bitree tmp = q.front();
+        q.pop();
+        printf(&amp;quot;%d&amp;quot;,tmp-&amp;gt;data);
+        if(tmp-&amp;gt;lchild) q.push(tmp.lchild);
+        if(tmp-&amp;gt;rchild) q.push(tmp.rchild);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0二叉搜索树&#34;&gt;0二叉搜索树&lt;/h2&gt;
 &lt;p&gt;左子树的所有结点值均小于根结点的值；右子树的所有结点值均大于根结点的值；左子树也是二叉搜索树。&lt;/p&gt;
 &lt;h3 id=&#34;二叉搜索树的构建&#34;&gt;二叉搜索树的构建&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;typedef struct TreeNode
