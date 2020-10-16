@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cactusii.github.io/</id>
     <title>Cactuii&apos;s Blog</title>
-    <updated>2020-09-28T13:19:50.427Z</updated>
+    <updated>2020-10-16T07:00:37.847Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cactusii.github.io/"/>
     <link rel="self" href="https://cactusii.github.io/atom.xml"/>
@@ -10,6 +10,58 @@
     <logo>https://cactusii.github.io/images/avatar.png</logo>
     <icon>https://cactusii.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Cactuii&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[威胁情报]]></title>
+        <id>https://cactusii.github.io/post/wei-xie-qing-bao/</id>
+        <link href="https://cactusii.github.io/post/wei-xie-qing-bao/">
+        </link>
+        <updated>2020-10-16T05:37:34.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="是什么">是什么</h2>
+<p>情报是线索，威胁情报是为了还原已发生的攻击和预测未发生的攻击所需要的一切线索。</p>
+<p>既然企业需要收集情报来完成帮助自己提高抵御威胁的能力，那么在网络空间安全中，重要的情报就是IP（是否连接了恶意的IP）、文件（是否下载了恶意的文件）、域名（是否连接了恶意的域名）等了。</p>
+<h2 id="包含什么">包含什么</h2>
+<ul>
+<li>恶意IP</li>
+<li>域名/网站</li>
+<li>文件哈希（对恶意软件生成一个指纹）</li>
+<li>受害产业</li>
+</ul>
+<h2 id="行业标准和规范">行业标准和规范</h2>
+<p>-</p>
+<h2 id="情报来源">情报来源</h2>
+<p>如果主要关注情报中的域名、IP、URL等数据，主要来源有两类：</p>
+<ul>
+<li>开源的黑名单。例如<a href="http://iplists.firehol.org/">FireHOL</a>、<a href="https://isc.sans.edu/">sans.edu</a>。这些黑名单更新迅速、可信度高，是我们所关注的信息的一个很好的来源。且十分容易处理。</li>
+<li>安全咨询类网站上的文章。在这些文章中往往包含了很多的特定主题下的IoC信息，这些信息具有针对性强的特点，即一个IP或域名可以对应到某一具体的事件。这也是威胁情报收集中非常重要的一类来源，但其最大的问题是这些信息一般都在文章中出现，其间夹杂了大量的冗余信息，使得提取这些数据具有一定的困难。</li>
+</ul>
+<h2 id="威胁指标">威胁指标</h2>
+<p>威胁指标是一个实体，该指标表示遭到某种攻击或威胁的可能性。最常见的类型是文件哈希/签名，域名和 IP 地址的声誉度，这些都能与攻击进行关联。<br>
+哈希文件是对蠕虫、木马、键盘记录程序和其他类型的恶意程序的唯一标识，MD5 或 SHA-1 可以生成一个独特的指纹，可以利用这串独有的字符串来标定恶意软件。同样的，网站、IP 地址、甚至是传播恶意软件独特的 URL，都会通过受感染的用户把风险带入整个网络。跟踪恶意网站，完善黑名单的 IP 列表，使用哈希字符串来识别恶意软件，阻止它们入侵你的技术基础设施。与风险相关的恶意网站/ IP 地址：</p>
+<ul>
+<li>垃圾邮件和网络钓鱼</li>
+<li>恶意软件和间谍程序</li>
+<li>匿名代理和 P2P 网络</li>
+<li>暗网 IP 地址（使用 TOR）</li>
+<li>管理僵尸网络的 C&amp;C 服务器</li>
+</ul>
+<h2 id="难点">难点</h2>
+<p>网络中存在的情报结构不同、关注方向不同、可信度不同、情报内容不同、情报的来源也是千奇百怪，因此在现阶段无法统一有效的提取出威胁情报中能够应用的关键信息。</p>
+<h2 id="威胁情报平台">威胁情报平台</h2>
+<ol>
+<li><a href="https://x.threatbook.cn">微步在线</a><br>
+<img src="https://cactusii.github.io//post-images/1602828155600.png" alt="" loading="lazy"></li>
+<li><a href="https://ti.360.cn/">360威胁情报中心</a><br>
+<img src="https://cactusii.github.io//post-images/1602828291980.png" alt="" loading="lazy"></li>
+<li><a href="https://exchange.xforce.ibmcloud.com/">IBM X-Force Exchange</a><br>
+<img src="https://cactusii.github.io//post-images/1602828218300.png" alt="" loading="lazy"></li>
+</ol>
+<h2 id="开源项目">开源项目</h2>
+<ol>
+<li><a href="https://github.com/NewBee119/Ti_Collector">Ti_Collector</a></li>
+</ol>
+<p>参考：<a href="https://www.freebuf.com/sectool/152201.html">1一个爬虫的小例子</a>、<a href="https://blog.csdn.net/tan6600/article/details/52138282?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">2</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【算法】数学]]></title>
         <id>https://cactusii.github.io/post/suan-fa-shu-xue/</id>
@@ -166,7 +218,7 @@ void _postOrderTraveral(Bitree *node)
             }
             else
             {
-                s.push(tmp_node);
+                s.push(tmp_node);//如果有右孩子并且每访问过，再将此结点入栈
                 tmp_node = tmp_node-&gt;rchild;
             }
         }
@@ -576,108 +628,6 @@ int main(void)
 	return 0;
 }
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[科研小白进阶路]]></title>
-        <id>https://cactusii.github.io/post/ke-yan-xiao-bai/</id>
-        <link href="https://cactusii.github.io/post/ke-yan-xiao-bai/">
-        </link>
-        <updated>2020-09-17T04:55:40.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="1什么是sci">1.什么是SCI</h2>
-<p>SCI(Science Citation Index)不是特指某一个学术期刊，而实一个索引，给已经发表的文章建立一个索引，方便查找以及引用的跟踪，可以理解成一座图书馆的图书索引，通过这些索引可以找到想要的论文，阅读和引用，不是所有的科研论文都可以纳入SCI的索引的范围内，只有SCI组织觉得某些期刊可以引用的，才会被纳入进来，其他的索引，例如EI，ESI</p>
-<h2 id="2期刊论文">2.期刊论文</h2>
-<p>通常期刊论文会比较完整、系统，好的期刊会被SCI收纳引用，期刊论文相对于会议论文发表更难一些，大部分高校和用人单位看的是期刊论文。不需要去开会，需要多轮的审稿。</p>
-<p>期刊的种类：</p>
-<ul>
-<li>提出新颖的方法，但没有完整的解决方案</li>
-<li>Survey 归纳总结该领域的工作</li>
-</ul>
-<h2 id="3会议论文">3.会议论文</h2>
-<p>会议论文是需要你去参加会议，宣讲你的研究成果<br>
-查找会议的相关信息：www.edas.info<br>
-一轮审稿，通过与不通过都是一轮</p>
-<p>在写之前应该先看看论文的Author Guidelines</p>
-<h2 id="4影响因子">4.影响因子</h2>
-<p>一般通过这个来看这个期刊的影响力，由论文引用量等等的影响。</p>
-<h2 id="5sci划区">5.SCI划区</h2>
-<p>SCI期刊与国内期刊有所不同，国内期刊有省级、国家级、核心级的划分，SCI期刊也有级别的划分，不同的是SCI对期刊进行了分区，分区标准有两类：</p>
-<ul>
-<li>中科院的分区
-<ul>
-<li>共分为四区，影响因子5%为1区、6%<sub>20%为2区、20%</sub>50%为3区、之后为4区。</li>
-</ul>
-</li>
-<li>jcr分区（汤森路透分区）
-<ul>
-<li>共分为1、2、3、4区，1区影响因子为前25%、2区25%<sub>50%、3区50%</sub>75%、之后为4区。</li>
-</ul>
-</li>
-</ul>
-<p>CNKI收录的大部分是国内的硕博论文和国内的期刊</p>
-<h2 id="干货">干货：</h2>
-<ol>
-<li>
-<p><strong>读</strong></p>
-<ul>
-<li><strong>怎么搜？</strong>
-<ul>
-<li>首先得先学会查业内相关的文献，工具有Google Scholar，Web of Science，Scopus，然后输入特定的方向，例如在Google Scholar上搜索网络安全，然后左侧有一个筛选，选择2020年最新的<img src="https://cactusii.github.io//post-images/1600342772850.png" alt="" loading="lazy">    <font color='red'>然后每个方向每年有多少篇论文整理下，对比下，这样做是为了确定两个东西，一个是你得确定做这个的community不太大，太大了论文太多你入门很困难，第二是在此基础上确保你想做的这个是个朝阳产业，就是一年论文比一年多的那种，夕阳产业就别做了。而且你在一个小的方向上做一段时间后你就会发现相关的其它小方向就触类旁通了。</font></li>
-<li>阅读几个方向的论文后，定下自己的方向，然后就海量的读论文。先读行业内顶刊的综述类论文，对框架进行了解，然后再选择行业内最新的论文读，看看最新的创新点都在什么地方，这种地方还有没有漏洞或者有人没做过的，整理出来，最后筛选下出来5-10个ideas，就可以正式进实验室啦。</li>
-</ul>
-</li>
-<li><strong>怎么管？</strong>
-<ul>
-<li>文献管理</li>
-</ul>
-</li>
-<li><strong>怎么读？</strong></li>
-</ul>
-</li>
-<li>
-<p><strong>写</strong></p>
-<ul>
-<li>英文写作能力</li>
-<li>学术论文写作方法</li>
-</ul>
-</li>
-</ol>
-<p>综述选题背景<br>
-总结前人成果<br>
-提出实验方案<br>
-分析我的优秀<br>
-致谢</p>
-<ol start="3">
-<li><strong>投稿</strong>
-<ul>
-<li>怎么找合适的期刊\会议</li>
-<li>投了之后的一系列事情</li>
-</ul>
-</li>
-</ol>
-<h2 id="项目">项目</h2>
-<ul>
-<li>横向：企业/机构合作的项目，适合专硕做</li>
-<li>纵向：国家部委、省市的研究课题(国家自然科学基金)，有论文指标的要求，学硕专硕都适合。</li>
-</ul>
-<h2 id="三年规划">三年规划</h2>
-<p>研一：</p>
-<ul>
-<li>上课</li>
-<li>读论文</li>
-</ul>
-<p>研二：</p>
-<ul>
-<li>写论文发论文</li>
-<li>做项目</li>
-</ul>
-<p><strong>以上内容部分参考自：</strong></p>
-<blockquote>
-<p>作者：Leslie Young<br>
-链接：https://www.zhihu.com/question/385466539/answer/1133113105<br>
-来源：知乎<br>
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-</blockquote>
 ]]></content>
     </entry>
 </feed>

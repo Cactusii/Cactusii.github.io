@@ -9,7 +9,7 @@
 <meta name="description" content="我咸甚，此鱼何能及我也！">
 <meta name="theme-color" content="#000">
 <title>Cactuii&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1601279968815">
+<link rel="shortcut icon" href="/favicon.ico?v=1602831632575">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -193,7 +193,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">13</span>
+        <span class="site-item-stat-count">14</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -244,6 +244,8 @@
           <small class="language" data-lan="tag">标签</small>
         </h2>
       </div>
+      
+      
       
       
       
@@ -522,6 +524,55 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/wei-xie-qing-bao/"" data-c="
+          &lt;h2 id=&#34;是什么&#34;&gt;是什么&lt;/h2&gt;
+&lt;p&gt;情报是线索，威胁情报是为了还原已发生的攻击和预测未发生的攻击所需要的一切线索。&lt;/p&gt;
+&lt;p&gt;既然企业需要收集情报来完成帮助自己提高抵御威胁的能力，那么在网络空间安全中，重要的情报就是IP（是否连接了恶意的IP）、文件（是否下载了恶意的文件）、域名（是否连接了恶意的域名）等了。&lt;/p&gt;
+&lt;h2 id=&#34;包含什么&#34;&gt;包含什么&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;恶意IP&lt;/li&gt;
+&lt;li&gt;域名/网站&lt;/li&gt;
+&lt;li&gt;文件哈希（对恶意软件生成一个指纹）&lt;/li&gt;
+&lt;li&gt;受害产业&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业标准和规范&#34;&gt;行业标准和规范&lt;/h2&gt;
+&lt;p&gt;-&lt;/p&gt;
+&lt;h2 id=&#34;情报来源&#34;&gt;情报来源&lt;/h2&gt;
+&lt;p&gt;如果主要关注情报中的域名、IP、URL等数据，主要来源有两类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开源的黑名单。例如&lt;a href=&#34;http://iplists.firehol.org/&#34;&gt;FireHOL&lt;/a&gt;、&lt;a href=&#34;https://isc.sans.edu/&#34;&gt;sans.edu&lt;/a&gt;。这些黑名单更新迅速、可信度高，是我们所关注的信息的一个很好的来源。且十分容易处理。&lt;/li&gt;
+&lt;li&gt;安全咨询类网站上的文章。在这些文章中往往包含了很多的特定主题下的IoC信息，这些信息具有针对性强的特点，即一个IP或域名可以对应到某一具体的事件。这也是威胁情报收集中非常重要的一类来源，但其最大的问题是这些信息一般都在文章中出现，其间夹杂了大量的冗余信息，使得提取这些数据具有一定的困难。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;威胁指标&#34;&gt;威胁指标&lt;/h2&gt;
+&lt;p&gt;威胁指标是一个实体，该指标表示遭到某种攻击或威胁的可能性。最常见的类型是文件哈希/签名，域名和 IP 地址的声誉度，这些都能与攻击进行关联。&lt;br&gt;
+哈希文件是对蠕虫、木马、键盘记录程序和其他类型的恶意程序的唯一标识，MD5 或 SHA-1 可以生成一个独特的指纹，可以利用这串独有的字符串来标定恶意软件。同样的，网站、IP 地址、甚至是传播恶意软件独特的 URL，都会通过受感染的用户把风险带入整个网络。跟踪恶意网站，完善黑名单的 IP 列表，使用哈希字符串来识别恶意软件，阻止它们入侵你的技术基础设施。与风险相关的恶意网站/ IP 地址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;垃圾邮件和网络钓鱼&lt;/li&gt;
+&lt;li&gt;恶意软件和间谍程序&lt;/li&gt;
+&lt;li&gt;匿名代理和 P2P 网络&lt;/li&gt;
+&lt;li&gt;暗网 IP 地址（使用 TOR）&lt;/li&gt;
+&lt;li&gt;管理僵尸网络的 C&amp;amp;C 服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;难点&#34;&gt;难点&lt;/h2&gt;
+&lt;p&gt;网络中存在的情报结构不同、关注方向不同、可信度不同、情报内容不同、情报的来源也是千奇百怪，因此在现阶段无法统一有效的提取出威胁情报中能够应用的关键信息。&lt;/p&gt;
+&lt;h2 id=&#34;威胁情报平台&#34;&gt;威胁情报平台&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://x.threatbook.cn&#34;&gt;微步在线&lt;/a&gt;&lt;br&gt;
+&lt;img src=&#34;https://cactusii.github.io//post-images/1602828155600.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ti.360.cn/&#34;&gt;360威胁情报中心&lt;/a&gt;&lt;br&gt;
+&lt;img src=&#34;https://cactusii.github.io//post-images/1602828291980.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://exchange.xforce.ibmcloud.com/&#34;&gt;IBM X-Force Exchange&lt;/a&gt;&lt;br&gt;
+&lt;img src=&#34;https://cactusii.github.io//post-images/1602828218300.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;开源项目&#34;&gt;开源项目&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NewBee119/Ti_Collector&#34;&gt;Ti_Collector&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;参考：&lt;a href=&#34;https://www.freebuf.com/sectool/152201.html&#34;&gt;1一个爬虫的小例子&lt;/a&gt;、&lt;a href=&#34;https://blog.csdn.net/tan6600/article/details/52138282?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
+">威胁情报</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/suan-fa-shu-xue/"" data-c="
           &lt;h2 id=&#34;分解质因数&#34;&gt;分解质因数&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void primeFactor(int n)
@@ -667,7 +718,7 @@ void _postOrderTraveral(Bitree *node)
             }
             else
             {
-                s.push(tmp_node);
+                s.push(tmp_node);//如果有右孩子并且每访问过，再将此结点入栈
                 tmp_node = tmp_node-&amp;gt;rchild;
             }
         }
