@@ -9,7 +9,7 @@
 <meta name="description" content="我咸甚，此鱼何能及我也！">
 <meta name="theme-color" content="#000">
 <title>【数据结构】排序算法 | Cactuii&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1602831632575">
+<link rel="shortcut icon" href="/favicon.ico?v=1603246009944">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -211,7 +211,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">14</span>
+        <span class="site-item-stat-count">15</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1247,6 +1247,55 @@
 &lt;/ol&gt;
 &lt;p&gt;参考：&lt;a href=&#34;https://www.freebuf.com/sectool/152201.html&#34;&gt;1一个爬虫的小例子&lt;/a&gt;、&lt;a href=&#34;https://blog.csdn.net/tan6600/article/details/52138282?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&#34;&gt;2&lt;/a&gt;&lt;/p&gt;
 ">威胁情报</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://cactusii.github.io/post/java-note/"" data-c="
+          &lt;h2 id=&#34;java数据类型&#34;&gt;java数据类型&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;基本类型：byte，short，int，long，boolean，float，double，char&lt;/li&gt;
+&lt;li&gt;引用类型：所有class和interface类型&lt;br&gt;
+引用类型可以赋值为null，表示空，但基本类型不能赋值为null：&lt;br&gt;
+包装类：&lt;br&gt;
+基本类型 对应的引用类型&lt;br&gt;
+boolean	java.lang.Boolean&lt;br&gt;
+byte       java.lang.Byte&lt;br&gt;
+short	java.lang.Short&lt;br&gt;
+int 	java.lang.Integer&lt;br&gt;
+long	java.lang.Long&lt;br&gt;
+float	java.lang.Float&lt;br&gt;
+double	java.lang.Double&lt;br&gt;
+char	java.lang.Character&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;java面向对象&#34;&gt;java面向对象&lt;/h2&gt;
+&lt;h3 id=&#34;java面向对象基础&#34;&gt;java面向对象基础&lt;/h3&gt;
+&lt;h4 id=&#34;包&#34;&gt;包&lt;/h4&gt;
+&lt;p&gt;java虚拟机只认完整类名，即package.class，一个包中，.java在src下，.class在bin下。&lt;br&gt;
+为了避免冲突，我们需要确定唯一的包名，推荐做法是使用倒置的域名：&lt;br&gt;
+org.apache.commons.log&lt;br&gt;
+java.lang已经默认导入&lt;/p&gt;
+&lt;h3 id=&#34;核心类&#34;&gt;核心类&lt;/h3&gt;
+&lt;h4 id=&#34;string和编码&#34;&gt;String和编码&lt;/h4&gt;
+&lt;p&gt;比较两个字符串是否相同要用.equal()，==是比较是否是同一个引用。&lt;br&gt;
+其他具体的方法见&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1252599548343744/1260469698963456&#34;&gt;此&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;有关编码，常用的有Unicode、UTF-8，二者区别是Unicode是2字节，UTF-8是一种1~4字节的变长编码，避免了空间浪费，char使用的Unicode编码&lt;/p&gt;
+&lt;h4 id=&#34;优先队列&#34;&gt;优先队列&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Queue&amp;lt;Integer&amp;gt; q = new PriorityQueue&amp;lt;Integer&amp;gt;(new Comparator&amp;lt;Integer&amp;gt;() {
+    @Override
+    public int compare(Integer o1, Integer o2) {
+        // TODO Auto-generated method stub
+        return o2-o1;
+    }
+});
+/*
+peek()//返回队首元素
+poll()//返回队首元素，队首元素出队列
+add()//添加元素
+size()//返回队列元素个数
+isEmpty()//判断队列是否为空，为空返回true,不空返回false
+*/
+&lt;/code&gt;&lt;/pre&gt;
+">JAVA NOTE</a>
       </div>
       
       <div class="item">

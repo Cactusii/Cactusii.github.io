@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cactusii.github.io/</id>
     <title>Cactuii&apos;s Blog</title>
-    <updated>2020-10-16T07:01:12.468Z</updated>
+    <updated>2020-10-21T02:10:16.774Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cactusii.github.io/"/>
     <link rel="self" href="https://cactusii.github.io/atom.xml"/>
@@ -60,6 +60,58 @@
 <li><a href="https://github.com/NewBee119/Ti_Collector">Ti_Collector</a></li>
 </ol>
 <p>参考：<a href="https://www.freebuf.com/sectool/152201.html">1一个爬虫的小例子</a>、<a href="https://blog.csdn.net/tan6600/article/details/52138282?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">2</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JAVA NOTE]]></title>
+        <id>https://cactusii.github.io/post/java-note/</id>
+        <link href="https://cactusii.github.io/post/java-note/">
+        </link>
+        <updated>2020-10-12T07:13:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="java数据类型">java数据类型</h2>
+<ul>
+<li>基本类型：byte，short，int，long，boolean，float，double，char</li>
+<li>引用类型：所有class和interface类型<br>
+引用类型可以赋值为null，表示空，但基本类型不能赋值为null：<br>
+包装类：<br>
+基本类型 对应的引用类型<br>
+boolean	java.lang.Boolean<br>
+byte       java.lang.Byte<br>
+short	java.lang.Short<br>
+int 	java.lang.Integer<br>
+long	java.lang.Long<br>
+float	java.lang.Float<br>
+double	java.lang.Double<br>
+char	java.lang.Character</li>
+</ul>
+<h2 id="java面向对象">java面向对象</h2>
+<h3 id="java面向对象基础">java面向对象基础</h3>
+<h4 id="包">包</h4>
+<p>java虚拟机只认完整类名，即package.class，一个包中，.java在src下，.class在bin下。<br>
+为了避免冲突，我们需要确定唯一的包名，推荐做法是使用倒置的域名：<br>
+org.apache.commons.log<br>
+java.lang已经默认导入</p>
+<h3 id="核心类">核心类</h3>
+<h4 id="string和编码">String和编码</h4>
+<p>比较两个字符串是否相同要用.equal()，==是比较是否是同一个引用。<br>
+其他具体的方法见<a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1260469698963456">此</a></p>
+<p>有关编码，常用的有Unicode、UTF-8，二者区别是Unicode是2字节，UTF-8是一种1~4字节的变长编码，避免了空间浪费，char使用的Unicode编码</p>
+<h4 id="优先队列">优先队列</h4>
+<pre><code class="language-java">Queue&lt;Integer&gt; q = new PriorityQueue&lt;Integer&gt;(new Comparator&lt;Integer&gt;() {
+    @Override
+    public int compare(Integer o1, Integer o2) {
+        // TODO Auto-generated method stub
+        return o2-o1;
+    }
+});
+/*
+peek()//返回队首元素
+poll()//返回队首元素，队首元素出队列
+add()//添加元素
+size()//返回队列元素个数
+isEmpty()//判断队列是否为空，为空返回true,不空返回false
+*/
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -564,70 +616,6 @@ main()
 <h2 id="3函数重载虚函数多态">3.函数重载&amp;虚函数（多态）</h2>
 <h2 id="4抽象">4.抽象</h2>
 <h2 id="5接口抽象类">5.接口（抽象类）</h2>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[浮点数的存储方法以及python的Decimal]]></title>
-        <id>https://cactusii.github.io/post/fu-dian-shu-de-cun-chu-fang-fa-yi-ji-python-de-decimal/</id>
-        <link href="https://cactusii.github.io/post/fu-dian-shu-de-cun-chu-fang-fa-yi-ji-python-de-decimal/">
-        </link>
-        <updated>2020-09-19T02:06:54.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="浮点数的存储方式">浮点数的存储方式</h2>
-<figure data-type="image" tabindex="1"><img src="https://cactusii.github.io//post-images/1600483237666.jpg" alt="" loading="lazy"></figure>
-<h2 id="decimaldecimal">decimal.Decimal</h2>
-<p>python中的decimal.Decimal类型可以非常精确地存储在计算机中，其优于float类型。<br>
-用法：</p>
-<pre><code class="language-python">from decimal import Decimal
-
-# 字符串/浮点数转换为Decimal
-Decimal('1.11')
-# &gt;&gt;Decimal('1.11')
-Decimal(1.11)
-# &gt;&gt;Decimal('1.1100000000000000976996261670137755572795867919921875')
-
-# 四舍五入
-Decimal('50.5679').quantize(Decimal('0.00'))
-# &gt;&gt;Decimal('50.57')
-
-# Decimal 结果转化为string
-str(Decimal('3.40').quantize(Decimal('0.0')))
-# &gt;&gt;'3.4'
-
-</code></pre>
-<p>将浮点数以二进制输出：</p>
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-
-int main(void)
-{
-	float fnum = 1;
-	int i;
-	int * p = (int *)&amp;fnum;//定义一个指向fnum的指针
-        int x=0;//设置flag变量
-	while (fnum != 0)//以0作为输入结束标志
-	{
-		printf(&quot;input a num: &quot;);
-		x=scanf(&quot;%f&quot;, &amp;fnum);
-                if(!x)//判断是否输入成功
-                {
-                       printf(&quot;wrong\n&quot;);
-                       fflush(stdin);//清空输入流，不然会死循环
-                       continue;
-                }
-		for (i = 31; i &gt;= 0; i--)
-		{
-                      /*将1左移i位，通过与运算判断第i位是否为1*/
-                      printf(&quot;%d&quot;, (*p &amp; (1 &lt;&lt; i) ? 1: 0));
-                      /*控制空格输入*/
-                      if(i==31||i==23)
-                           printf(&quot;  &quot;);
-                      if(i==27||i==19||i==15||i==11||i==7||i==3)
-                           printf(&quot; &quot;);
-		}
-		printf(&quot;\n&quot;);
-	}
-	return 0;
-}
-</code></pre>
 ]]></content>
     </entry>
 </feed>
